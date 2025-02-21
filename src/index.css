@@ -1,7 +1,17 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import './styles/services.scss';
 
 @theme {
-  --animate-spin: spin 7s linear infinite; 
+  --font-italiana: 'Italiana', serif;
+  --font-outfit: 'Outfit', sans-serif;
+  --font-poiretOne: 'Poiret One', serif;
+  --font-hostGrotesk: 'Host Grotesk', serif;
+
+  --color-primary: #ff0cc2;
+  --color-secondary: #694bb2;
+  --color-tertiary: #4d9aff;
+
+  --animate-spin: spin 7s linear infinite;
 
   @keyframes spin {
     to {
@@ -11,9 +21,72 @@
 }
 
 @layer components {
+  .content-overlay {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .grid300 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    place-items: center;
+  }
+
+  .screen1000 {
+    width: min(92%, 1000px);
+    margin-inline: auto;
+  }
+
+  .screen {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .full {
+    width: 100%;
+    height: 100%;
+  }
+
+  .fit {
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .glass {
+    @apply bg-white/50 backdrop-blur-xl;
+  }
+
+  .glass-dark {
+    @apply bg-black/50 backdrop-blur-xl;
+  }
+
+  .background-video {
+    @apply absolute top-0 left-0 w-full h-full object-cover;
+  }
+
+  .artist-photo {
+    width: 250px;
+    height: 250px;
+
+    @media screen and (max-width: 768px) {
+      width: 220px;
+      height: 220px;
+    }
+  }
+
   .flexrow-center {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
   }
@@ -30,37 +103,19 @@
     flex-direction: column;
   }
 
-  .wh-screen {
-    width: 100vw;
-    height: 100vh;
-  }
-
-  .wh-full {
-    width: 100%;
-    height: 100%;
-  }
-
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
   .absolute-top-left {
     position: absolute;
     top: 0;
     left: 0;
   }
-  
+
   .absolute-top-center {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .absolute-top-right {
     position: absolute;
     top: 0;
@@ -73,14 +128,14 @@
     left: 0;
     transform: translateY(-50%);
   }
-  
+
   .absolute-middle {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  
+
   .absolute-middle-right {
     position: absolute;
     top: 50%;
@@ -93,14 +148,14 @@
     bottom: 0;
     left: 0;
   }
-  
+
   .absolute-bottom-center {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .absolute-bottom-right {
     position: absolute;
     bottom: 0;
@@ -112,54 +167,54 @@
     top: 0;
     left: 0;
   }
-  
+
   .fixed-top-center {
     position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .fixed-top-right {
     position: fixed;
     top: 0;
     right: 0;
   }
-  
+
   .fixed-middle-left {
     position: fixed;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
   }
-  
+
   .fixed-middle {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  
+
   .fixed-middle-right {
     position: fixed;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
   }
-  
+
   .fixed-bottom-left {
     position: fixed;
     bottom: 0;
     left: 0;
   }
-  
+
   .fixed-bottom-center {
     position: fixed;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .fixed-bottom-right {
     position: fixed;
     bottom: 0;
