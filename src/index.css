@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import './styles/services.scss';
 
 @theme {
   --font-italiana: 'Italiana', serif;
@@ -98,53 +97,6 @@
 
   .sideways {
     writing-mode: sideways-lr;
-  }
-
-  .gradient-box {
-    background: linear-gradient(
-      to right,
-      #ffffff,
-      #000000,
-      #ffffff,
-      #000000,
-      #ffffff
-    );
-    background-size: 400%;
-    background-position: left;
-    border: none;
-    border-radius: 10px;
-    width: 140px;
-    height: 40px;
-    margin-top: 32px;
-    margin-inline: auto;
-    position: relative;
-    animation: gradientMove 16s linear infinite;  
-  
-    span {
-      color: #000000;
-      background-color: rgba(255, 255, 255);
-      background-size: 400%;
-      border-radius: 8px;
-      font-family: var(--font-italiana);
-      font-size: 1.2rem;
-      width: 96.6%;
-      height: 90%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      z-index: 0;
-      animation: gradientMove 16s linear infinite;  
-    }
-  }
-
-  @keyframes gradientMove {
-    0% {
-      background-position: 0% center;
-    }
-    100% {
-      background-position: 400% center;
-    }
   }
 
   .flexrow-center {

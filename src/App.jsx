@@ -1,4 +1,6 @@
 import './App.css';
+import './styles/services.scss';
+import './styles/customBox.scss';
 
 import Home from './sections/Home';
 import Services from './sections/Services';

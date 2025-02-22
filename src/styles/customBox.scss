@@ -1,0 +1,92 @@
+// Color Definitions
+$clr-primary: #ffffff;
+$clr-secondary: #000000;
+$clr-accent: #54bcfe;
+$clr-accent-2: #daf0ff;
+$clr-neutral-light: #efefef;
+$clr-neutral-dark: #282828;
+
+// Gradient Combinations
+$gradient-dark: (
+  $clr-primary,
+  $clr-secondary,
+  $clr-primary,
+  $clr-secondary,
+  $clr-primary
+);
+
+$gradient-light: (
+  $clr-secondary,
+  $clr-primary,
+  $clr-secondary,
+  $clr-primary,
+  $clr-secondary
+);
+
+$gradient-accent: (
+  $clr-accent-2,
+  $clr-accent,
+  $clr-accent-2,
+  $clr-accent,
+);
+
+// Gradient Box Mixin
+@mixin gradient-box-variant($colors, $text-color, $inner-bg) {
+  background: linear-gradient(to right, $colors);
+  background-size: 400%;
+  background-position: left;
+  animation: gradientMove 3s linear infinite;
+
+  span {
+    color: $text-color;
+    background-color: $inner-bg;
+  }
+}
+
+// Base Gradient Box Styles
+.gradient-box {
+  border: none;
+  border-radius: 10px;
+  width: 160px;
+  height: 40px;
+  margin-top: 32px;
+  margin-inline: auto;
+  position: relative;
+
+  span {
+    background-size: 400%;
+    border-radius: 8px;
+    font-family: var(--font-italiana);
+    font-size: 1.2rem;
+    width: 96.6%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 0;
+    animation: gradientMove 3s linear infinite;
+  }
+
+  // Gradient Variants
+  &--dark {
+    @include gradient-box-variant($gradient-dark, $clr-secondary, rgba($clr-primary, 1));
+  }
+
+  &--light {
+    @include gradient-box-variant($gradient-light, $clr-primary, rgba($clr-secondary, 0.9));
+  }
+
+  &--accent {
+    @include gradient-box-variant($gradient-accent, $clr-accent, rgba($clr-primary, 1));
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}

@@ -1,9 +1,18 @@
-const GradientBox = ({ text, width = '140px', height = '40px', className = '' }) => {
+import PropTypes from 'prop-types';
+
+const GradientBox = ({ text, variant = 'dark' }) => {
   return (
-    <div className={`gradient-box flexrow-center relative ${className}`}>
+    <div
+      className={`gradient-box gradient-box--${variant} flexrow-center relative`}
+    >
       <span>{text}</span>
     </div>
   );
+};
+
+GradientBox.propTypes = {
+  text: PropTypes.string.isRequired,
+  variant: PropTypes.oneOf(['dark', 'light', 'accent']),
 };
 
 export default GradientBox;

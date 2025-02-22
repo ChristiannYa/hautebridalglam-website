@@ -2,6 +2,12 @@ import weddingPackages from '../constants/weddingPackages';
 import GradientBox from '../components/GradientBox';
 
 const Packages = () => {
+  const VARIANT_MAP = {
+    'For the Bride': 'dark',
+    'For The Groom': 'dark',
+    'Luxury Add-Ons': 'accent',
+  };
+
   return (
     <section className="py-16 max-md:py-10 bg-white content-overlay">
       <div className="screen1000">
@@ -23,31 +29,18 @@ const Packages = () => {
       </div>
 
       <div className="screen1600 mt-16">
-        <div className="grid300 gap-8">
+        <div className="grid300 gap-x-8 gap-y-12">
           {weddingPackages.map((p) => (
             <div key={p.id} className="space-y-3">
-              <GradientBox text={p.price} />
+              <GradientBox
+                text={p.title}
+                variant={VARIANT_MAP[p.id] || 'dark'}
+              />
               <div
                 className={`rounded-lg flex gap-6 overflow-hidden p-4 h-fit relative`}
-                style={{
-                  backgroundImage: p.bgImg ? `url(${p.bgImg})` : 'none',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
               >
-                {/* blur overlay div */}
-                <div className="absolute inset-0 backdrop-blur-sm bg-white/10" />
-
                 {/* wrapped content in relative div to stay above blur */}
                 <div className="relative z-10 flex gap-6">
-                  <div className="gap-2">
-                    <h1
-                      className={`bg-white/20 font-italiana font-thin text-4xl text-end sideways shadow-title tracking-[1rem] uppercase py-1 pb-5`}
-                    >
-                      {p.title}
-                    </h1>
-                  </div>
-
                   <ul className="text-center flexcol gap-4">
                     {p.services.map((service, serviceIndex) => (
                       <li key={serviceIndex} className="flexcol gap-1">
@@ -64,6 +57,9 @@ const Packages = () => {
                     ))}
                   </ul>
                 </div>
+              </div>
+              <div className="flexrow-center gap-x-1">
+                <p className="font-poiretOne font-bold">{p.price}</p>
               </div>
             </div>
           ))}

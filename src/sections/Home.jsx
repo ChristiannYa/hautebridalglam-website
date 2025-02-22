@@ -1,22 +1,65 @@
-function Home() {
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+
+const Home = () => {
+  useGSAP(() => {
+    gsap.from('#text1', {
+      x: '100vw',
+      duration: 2,
+      ease: 'power4.out',
+      delay: 1,
+    });
+
+    gsap.from('#text2', {
+      x: '-100vw',
+      duration: 2,
+      ease: 'power4.out',
+      delay: 1,
+    });
+
+    gsap.from('#text3', {
+      y: 50,
+      opacity: 0,
+      duration: 2,
+      ease: 'power3.out',
+      delay: 3.5,
+    });
+
+    gsap.from('.divider', {
+      scaleX: 0,
+      duration: 2,
+      ease: 'power2.out',
+      delay: 2.5,
+    });
+  }, []);
+
   return (
     <section className="fixed screen overflow-hidden z-0">
-      <video autoPlay loop muted className="background-video">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="background-video"
+        onTouchStart={(e) => e.target.play()}
+      >
         <source src="/landing.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="text-white text-center absolute-middle">
-        <h1 className="font-outfit text-lg">Haute Bridal Glam by A.J.</h1>
-        <h1 className="font-italiana text-5xl uppercase mb-4">
+        <h1 id="text1" className="font-outfit text-lg">
+          Haute Bridal Glam by A.J.
+        </h1>
+        <h1 id="text2" className="font-italiana text-5xl uppercase mb-4">
           Bridal Artistry
         </h1>
-        <hr className="mb-4" />
-        <p className="font-outfit font-light text-xl">
+        <hr className="mb-4 divider" />
+        <p id="text3" className="font-outfit font-light text-xl">
           Enhancing Your Natural Beauty on Your Special Day
         </p>
       </div>
     </section>
   );
-}
+};
 
-export default Home
+export default Home;
