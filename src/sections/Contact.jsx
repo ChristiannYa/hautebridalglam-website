@@ -1,6 +1,6 @@
-function Footer() {
+const Contact = () => {
   return (
-    <footer className="bg-neutral-300 bg-opacity-90 py-8 px-8">
+    <footer className="glass-dark text-white py-8 px-8">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="mb-4 md:mb-0">
           <p className="mb-2">Email: info@bridalbeautyartistry.com</p>
@@ -22,5 +22,5 @@ function Footer() {
   )
 }
 
-export default Footer
+export default Contact
 

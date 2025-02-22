@@ -11,7 +11,7 @@ export const services = [
   {
     id: 2,
     title: 'Bridal Makeup',
-    description: 'A flawless, long-lasting look for your special day',
+    description: 'Flawless, long-lasting look for your special day',
     price: '$275',
     image: artistServices.bridalMakeup,
   },
@@ -25,7 +25,7 @@ export const services = [
   {
     id: 4,
     title: 'Bridal Hair Styling',
-    description: 'A stunning hairstyle to complement your bridal look',
+    description: 'Stunning hairstyle to complement your bridal look',
     price: '$150',
     image: artistServices.bridalHairStyling,
   },

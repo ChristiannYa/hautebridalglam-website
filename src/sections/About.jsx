@@ -1,13 +1,13 @@
 import miscellaneous from '../assets/miscellaneous';
 
-function About() {
+const About = () => {
   return (
-    <section className="py-16 bg-white content-overlay">
+    <section className="py-16 max-md:py-10 bg-white content-overlay">
       <div className="screen1000">
         <h2 className="text-black text-center font-italiana text-5xl uppercase mb-8">
           About Me
         </h2>
-        <div className='flexcol-center md:flex-row gap-x-12 max-md:gap-y-6'>
+        <div className="flexcol-center md:flex-row gap-x-12 max-md:gap-y-6">
           <div className="font-outfit text-xl text-justify font-light space-y-2">
             <p>
               I am an experienced and passionate makeup artist dedicated to

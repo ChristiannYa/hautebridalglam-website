@@ -1,24 +1,26 @@
 import './App.css';
 
-import Home from './components/Home';
-import Services from './components/Services';
-import About from './components/About';
-import Contact from './components/Contact';
+import Home from './sections/Home';
+import Services from './sections/Services';
+import About from './sections/About';
+import Contact from './sections/Contact';
+import Packages from './sections/Packages';
 
-function App() {
+const App = () => {
   return (
     <>
       <Home />
       <div className="relative">
         <div className="h-screen" /> {/* Spacer for first screen */}
         <div className="relative z-10">
-          <Services />
           <About />
+          <Services />
+          <Packages />
           <Contact />
         </div>
       </div>
     </>
   );
-}
+};
 
 export default App;

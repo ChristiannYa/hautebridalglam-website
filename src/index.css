@@ -7,6 +7,8 @@
   --font-poiretOne: 'Poiret One', serif;
   --font-hostGrotesk: 'Host Grotesk', serif;
 
+  --shadow-title: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
   --color-primary: #ff0cc2;
   --color-secondary: #694bb2;
   --color-tertiary: #4d9aff;
@@ -29,14 +31,23 @@
     width: 100%;
   }
 
-  .grid300 {
+  .grid220 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    place-items: center;
+  }
+
+  .grid300 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
   .screen1000 {
     width: min(92%, 1000px);
+    margin-inline: auto;
+  }
+
+  .screen1600 {
+    width: min(92%, 1600px);
     margin-inline: auto;
   }
 
@@ -82,6 +93,57 @@
     @media screen and (max-width: 768px) {
       width: 220px;
       height: 220px;
+    }
+  }
+
+  .sideways {
+    writing-mode: sideways-lr;
+  }
+
+  .gradient-box {
+    background: linear-gradient(
+      to right,
+      #ffffff,
+      #000000,
+      #ffffff,
+      #000000,
+      #ffffff
+    );
+    background-size: 400%;
+    background-position: left;
+    border: none;
+    border-radius: 10px;
+    width: 140px;
+    height: 40px;
+    margin-top: 32px;
+    margin-inline: auto;
+    position: relative;
+    animation: gradientMove 16s linear infinite;  
+  
+    span {
+      color: #000000;
+      background-color: rgba(255, 255, 255);
+      background-size: 400%;
+      border-radius: 8px;
+      font-family: var(--font-italiana);
+      font-size: 1.2rem;
+      width: 96.6%;
+      height: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 0;
+      animation: gradientMove 16s linear infinite;  
+    }
+  }
+
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: 400% center;
     }
   }
 

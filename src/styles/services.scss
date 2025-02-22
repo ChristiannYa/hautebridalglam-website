@@ -1,8 +1,7 @@
 .services {
-  padding: 64px 32px;
-
   .-grid {
-    gap: 48px;
+    gap: 36px 50px;
+    place-items: center;
 
     .-content-wrapper {
       background-color: #ffffff10;
@@ -10,9 +9,7 @@
       border-radius: 100%;
       cursor: pointer;
       overflow: hidden;
-
       aspect-ratio: 1;
-
       position: relative;
 
       img {
@@ -26,17 +23,15 @@
         transform: translateY(100%);
         transition: transform 0.4s ease;
         text-align: center;
-
         height: 100%;
         padding: 1rem;
-
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
 
         p {
-          font-size: calc(var(--container-width) * 0.08);
+          font-size: calc(var(--container-width) * 0.07);
         }
 
         span {
@@ -52,6 +47,75 @@
         .-description {
           transform: translateY(0);
         }
+      }
+    }
+  }
+
+  .-book-btn {
+    background: linear-gradient(
+      to right,
+      #333333,
+      #ffffff,
+      #333333,
+      #333333,
+      #ffffff,
+      #333333
+    );
+    color: #e8e8e8;
+    background-size: 250%;
+    background-position: left;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition-duration: 1s;
+    overflow: hidden;
+
+    width: 140px;
+    height: 40px;
+    margin-top: 32px;
+    margin-inline: auto;
+
+    a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    &::before {
+      color: #e8e8e8;
+      background-color: rgba(0, 0, 0, 0.842);
+      background-size: 200%;
+      border-radius: 8px;
+      font-family: var(--font-italiana);
+      font-size: 1.2rem;
+      transition-duration: 1s;
+      content: 'Book Now';
+      width: 96.6%;
+      height: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 0;
+    }
+
+    &:hover {
+      background-position: right;
+      transition-duration: 1s;
+
+      &::before {
+        background-position: right;
+        transition-duration: 1s;
+      }
+    }
+
+    &:hover,
+    &:active {
+      a {
+        z-index: 3; 
       }
     }
   }
