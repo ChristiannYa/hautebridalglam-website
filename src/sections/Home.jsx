@@ -1,5 +1,6 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import miscellaneous from '../assets/miscellaneous';
 
 const Home = () => {
   useGSAP(() => {
@@ -31,6 +32,14 @@ const Home = () => {
       ease: 'power2.out',
       delay: 2.5,
     });
+
+    gsap.from('#logo', {
+      y: 50,
+      opacity: 0,
+      duration: 2,
+      ease: 'power3.out',
+      delay: 2.5,
+    });
   }, []);
 
   return (
@@ -47,6 +56,9 @@ const Home = () => {
         Your browser does not support the video tag.
       </video>
       <div className="text-white text-center absolute-middle">
+        <div id="logo" className="overflow-hidden w-fit mb-2 mx-auto">
+          <img src={miscellaneous.logo} alt="Logo" className="h-14 p-1" />
+        </div>
         <h1 id="text1" className="font-outfit text-lg">
           Haute Bridal Glam by A.J.
         </h1>

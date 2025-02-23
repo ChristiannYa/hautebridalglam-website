@@ -9,13 +9,15 @@ import About from './sections/About';
 import Contact from './sections/Contact';
 import Packages from './sections/Packages';
 import Reviews from './sections/Reviews';
+import ScrollProgress from './components/ScrollProgress';
 
 const App = () => {
   return (
     <>
+      <ScrollProgress />
       <Home />
       <div className="relative">
-        <div className="h-screen" /> {/* Spacer for first screen */}
+        <div className="h-screen" />
         <div className="relative z-10">
           <About />
           <Services />

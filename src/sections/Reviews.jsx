@@ -43,7 +43,7 @@ const Reviews = () => {
           <div className="tag-list scroller__inner flex items-center">
             {words.map((word, id) => (
               <div key={id} className="flex items-center">
-                <h1 className="text-white text-center font-italiana text-6xl uppercase">
+                <h1 className="text-white text-center font-italiana text-6xl max-md:text-4xl uppercase">
                   {word}
                 </h1>
                 <span className="ml-6 text-sm">🤍</span>
@@ -63,8 +63,12 @@ const Reviews = () => {
         <div className="screen1000 flexcol-center text-white gap-12">
           {reviews.map((review) => (
             <div key={review.id} className="flex flex-col gap-4">
-              <h2 className="font-poiretOne font-semibold text-2xl">{review.title}</h2>
-              <p className="font-poiretOne text-lg">&ldquo;{review.content}&rdquo;</p>
+              <h2 className="font-poiretOne font-semibold text-2xl">
+                {review.title}
+              </h2>
+              <p className="font-poiretOne text-lg">
+                &ldquo;{review.content}&rdquo;
+              </p>
               <span className="font-windSong text-xl">- {review.name}</span>
             </div>
           ))}

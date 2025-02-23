@@ -2,7 +2,7 @@ import miscellaneous from '../assets/miscellaneous';
 
 const About = () => {
   return (
-    <section className="py-16 max-md:py-10 bg-white content-overlay">
+    <div className="py-16 max-md:py-10 bg-white content-overlay">
       <div className="screen1000">
         <h2 className="text-black text-center font-italiana text-5xl uppercase mb-8">
           About Me
@@ -36,7 +36,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
