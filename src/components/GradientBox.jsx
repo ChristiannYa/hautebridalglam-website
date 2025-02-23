@@ -12,7 +12,7 @@ const GradientBox = ({ text, variant = 'dark' }) => {
 
 GradientBox.propTypes = {
   text: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(['dark', 'light', 'accent']),
+  variant: PropTypes.string,
 };
 
 export default GradientBox;

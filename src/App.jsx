@@ -1,4 +1,5 @@
 import './App.css';
+import './styles/carousel.scss';
 import './styles/services.scss';
 import './styles/customBox.scss';
 
@@ -7,6 +8,7 @@ import Services from './sections/Services';
 import About from './sections/About';
 import Contact from './sections/Contact';
 import Packages from './sections/Packages';
+import Reviews from './sections/Reviews';
 
 const App = () => {
   return (
@@ -18,6 +20,7 @@ const App = () => {
           <About />
           <Services />
           <Packages />
+          <Reviews />
           <Contact />
         </div>
       </div>

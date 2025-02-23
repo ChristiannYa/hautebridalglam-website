@@ -22,7 +22,7 @@ const Home = () => {
       opacity: 0,
       duration: 2,
       ease: 'power3.out',
-      delay: 3.5,
+      delay: 2.5,
     });
 
     gsap.from('.divider', {

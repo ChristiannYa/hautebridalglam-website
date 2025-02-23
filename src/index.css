@@ -5,6 +5,7 @@
   --font-outfit: 'Outfit', sans-serif;
   --font-poiretOne: 'Poiret One', serif;
   --font-hostGrotesk: 'Host Grotesk', serif;
+  --font-windSong: 'WindSong', serif;
 
   --shadow-title: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
@@ -38,6 +39,11 @@
   .grid300 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .screen800 {
+    width: min(92%, 800px);
+    margin-inline: auto;
   }
 
   .screen1000 {
