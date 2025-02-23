@@ -8,14 +8,14 @@ const Home = () => {
       x: '100vw',
       duration: 2,
       ease: 'power4.out',
-      delay: 1,
+      delay: 0.5,
     });
 
     gsap.from('#text2', {
       x: '-100vw',
       duration: 2,
       ease: 'power4.out',
-      delay: 1,
+      delay: 0.5,
     });
 
     gsap.from('#text3', {
@@ -23,14 +23,14 @@ const Home = () => {
       opacity: 0,
       duration: 2,
       ease: 'power3.out',
-      delay: 2.5,
+      delay: 1.5,
     });
 
     gsap.from('.divider', {
       scaleX: 0,
       duration: 2,
       ease: 'power2.out',
-      delay: 2.5,
+      delay: 1.5,
     });
 
     gsap.from('#logo', {
@@ -38,7 +38,7 @@ const Home = () => {
       opacity: 0,
       duration: 2,
       ease: 'power3.out',
-      delay: 2.5,
+      delay: 1.5,
     });
   }, []);
 

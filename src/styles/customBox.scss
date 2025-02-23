@@ -1,8 +1,9 @@
 // Color Definitions
 $clr-primary: #ffffff;
 $clr-secondary: #000000;
-$clr-accent: #54bcfe;
-$clr-accent-2: #daf0ff;
+$clr-accent: #d4af38;
+$clr-accent-2: #FFFF00;
+$clr-accent-3: #e1ad01;
 $clr-neutral-light: #efefef;
 $clr-neutral-dark: #282828;
 
@@ -78,7 +79,7 @@ $gradient-accent: (
   }
 
   &--accent {
-    @include gradient-box-variant($gradient-accent, $clr-accent, rgba($clr-primary, 1));
+    @include gradient-box-variant($gradient-accent, $clr-accent-3, rgba($clr-primary, 1));
   }
 }
 
