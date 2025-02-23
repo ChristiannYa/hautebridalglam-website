@@ -1,11 +1,11 @@
 // Color Definitions
 $clr-primary: #ffffff;
 $clr-secondary: #000000;
-$clr-accent: #d4af38;
-$clr-accent-2: #FFFF00;
-$clr-accent-3: #e1ad01;
+$clr-accent: #233c67;
+$clr-accent-2: #4470ad;
+$clr-accent-3: #99aad7;
 $clr-neutral-light: #efefef;
-$clr-neutral-dark: #282828;
+$clr-neutral-dark: #1c1c1c;
 
 // Gradient Combinations
 $gradient-dark: (
@@ -25,18 +25,19 @@ $gradient-light: (
 );
 
 $gradient-accent: (
+  $clr-accent-3,
   $clr-accent-2,
-  $clr-accent,
+  $clr-accent-3,
   $clr-accent-2,
-  $clr-accent,
+  $clr-accent-3
 );
 
 // Gradient Box Mixin
 @mixin gradient-box-variant($colors, $text-color, $inner-bg) {
-  background: linear-gradient(to right, $colors);
-  background-size: 400%;
-  background-position: left;
-  animation: gradientMove 3s linear infinite;
+  background: linear-gradient(to right, $colors...);
+  background-size: 300% 100%;
+  background-position: 0% 50%;
+  animation: gradientMove 6s linear infinite;
 
   span {
     color: $text-color;
@@ -55,10 +56,11 @@ $gradient-accent: (
   position: relative;
 
   span {
-    background-size: 400%;
+    background-size: 300% 100%;
     border-radius: 8px;
     font-family: var(--font-italiana);
     font-size: 1.2rem;
+    animation: gradientMove 6s linear infinite;
     width: 96.6%;
     height: 90%;
     display: flex;
@@ -66,7 +68,6 @@ $gradient-accent: (
     justify-content: center;
     position: absolute;
     z-index: 0;
-    animation: gradientMove 3s linear infinite;
   }
 
   // Gradient Variants
@@ -79,15 +80,18 @@ $gradient-accent: (
   }
 
   &--accent {
-    @include gradient-box-variant($gradient-accent, $clr-accent-3, rgba($clr-primary, 1));
+    @include gradient-box-variant($gradient-accent, $clr-primary, rgba($clr-accent, 1));
   }
 }
 
 @keyframes gradientMove {
   0% {
-    background-position: left;
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
   100% {
-    background-position: right;
+    background-position: 0% 50%;
   }
 }

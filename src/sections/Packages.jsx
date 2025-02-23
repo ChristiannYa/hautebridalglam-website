@@ -12,8 +12,8 @@ const Packages = () => {
     <section className="py-16 max-md:py-10 bg-white content-overlay">
       <div className="screen1000">
         <div className="flexcol-center gap-8">
-          <h2 className="text-black font-italiana text-5xl uppercase">
-            Packages
+          <h2 className="text-black font-italiana text-5xl text-center uppercase">
+            Wedding Packages
           </h2>
           <div className="font-outfit text-xl text-justify font-light">
             <p>
@@ -28,8 +28,8 @@ const Packages = () => {
         </div>
       </div>
 
-      <div className="screen1600 mt-16">
-        <div className="grid300 gap-x-8 gap-y-12">
+      <div className="screen1600">
+        <div className="grid300 gap-x-8 gap-y-10">
           {weddingPackages.map((p) => (
             <div key={p.id} className="space-y-3">
               <GradientBox
