@@ -14,10 +14,19 @@ const Services = () => {
       });
     };
 
-    updateContainerWidth();
+    // run when images are loaded
+    window.addEventListener('load', updateContainerWidth);
+
+    // run on resize
     window.addEventListener('resize', updateContainerWidth);
 
-    return () => window.removeEventListener('resize', updateContainerWidth);
+    // initial run
+    updateContainerWidth();
+
+    return () => {
+      window.removeEventListener('load', updateContainerWidth);
+      window.removeEventListener('resize', updateContainerWidth);
+    };
   }, []);
 
   return (
