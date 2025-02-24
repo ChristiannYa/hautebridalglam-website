@@ -1,8 +1,10 @@
 import './App.css';
 import './styles/carousel.scss';
-import './styles/services.scss';
+import './styles/Services.scss';
 import './styles/customBox.scss';
+import './styles/Nav.scss';
 
+import Nav from './components/Nav';
 import Home from './sections/Home';
 import Services from './sections/Services';
 import About from './sections/About';
@@ -15,6 +17,7 @@ const App = () => {
   return (
     <>
       <ScrollProgress />
+      <Nav />
       <Home />
       <div className="relative">
         <div className="h-screen" />

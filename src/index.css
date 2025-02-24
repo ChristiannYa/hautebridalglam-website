@@ -80,7 +80,7 @@
   }
 
   .glass {
-    @apply bg-white/40 backdrop-blur-xs;
+    @apply bg-white/20 backdrop-blur-xs;
   }
 
   .glass-dark {

@@ -1,0 +1,42 @@
+.topnav {
+  margin-top: 8px;
+
+  .-nav-container {
+    background-color: white;
+    border: solid 2px var(--color-primary);
+    border-radius: 12px;
+    text-align: center;
+    
+    width: fit-content;
+    margin-inline: auto;
+    padding: 16px 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 16px;
+
+    @media (max-width: 620px) {
+      padding: 6px 4px;
+
+      gap: 0 8px;
+    }
+
+    .-anchor-link {
+      transition: color 0.2s ease;
+
+      padding: 4px 6px;
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--color-primnary);
+          font-weight: 600;
+        }
+      }
+
+      @media (max-width: 620px) {
+        font-size: 1rem;
+      }
+    }
+  }
+}

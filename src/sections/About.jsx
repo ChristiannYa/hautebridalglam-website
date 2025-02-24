@@ -2,7 +2,10 @@ import miscellaneous from '../assets/miscellaneous';
 
 const About = () => {
   return (
-    <div className="py-16 max-md:py-10 bg-white content-overlay">
+    <div
+      id="about"
+      className="section bg-white content-overlay py-16 max-md:py-10"
+    >
       <div className="screen1000">
         <h2 className="text-black text-center font-italiana text-5xl uppercase mb-8">
           About Me
@@ -38,6 +41,6 @@ const About = () => {
       </div>
     </div>
   );
-}
+};
 
 export default About;

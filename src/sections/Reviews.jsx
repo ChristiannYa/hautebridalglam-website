@@ -37,7 +37,10 @@ const Reviews = () => {
   };
 
   return (
-    <section className="min-h-screen glass-dark py-16 max-md:py-10 relative">
+    <section
+      id="reviews"
+      className="section min-h-screen glass-dark py-16 max-md:py-10 relative"
+    >
       <div className="scroller-container screen1600 flexcol-center text-white ">
         <div className="scroller" data-direction="left" data-speed="slow">
           <div className="tag-list scroller__inner flex items-center">

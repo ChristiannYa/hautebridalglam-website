@@ -30,7 +30,10 @@ const Services = () => {
   }, []);
 
   return (
-    <section className="services glass-dark py-16 max-md:py-10">
+    <section
+      id="services"
+      className="services section glass-dark py-16 max-md:py-10"
+    >
       <div className="screen1600">
         <h2 className="text-white text-center font-italiana text-5xl uppercase mb-8">
           Services
