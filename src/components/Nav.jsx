@@ -1,18 +1,32 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { navLinks } from '../constants/navLinks';
 
 const Nav = () => {
-  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+  const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [visible, setVisible] = useState(true);
   const [isClickScroll, setIsClickScroll] = useState(false);
+  const scrollTimeoutRef = useRef(null);
 
   const handleScroll = useCallback(() => {
     if (!isClickScroll) {
-      const currentScrollPos = window.scrollY;
-      const isVisible =
-        prevScrollPos > currentScrollPos || currentScrollPos < 10;
-      setVisible(isVisible);
-      setPrevScrollPos(currentScrollPos);
+      requestAnimationFrame(() => {
+        const currentScrollPos = window.scrollY;
+        const isVisible =
+          prevScrollPos > currentScrollPos || currentScrollPos < 1;
+
+        setVisible(isVisible);
+        setPrevScrollPos(currentScrollPos);
+
+        // Delay hiding on touch devices
+        if (!isVisible) {
+          if (scrollTimeoutRef.current) {
+            clearTimeout(scrollTimeoutRef.current);
+          }
+          scrollTimeoutRef.current = setTimeout(() => {
+            setVisible(false);
+          }, 200);
+        }
+      });
     }
   }, [prevScrollPos, isClickScroll]);
 
@@ -45,20 +59,25 @@ const Nav = () => {
   useEffect(() => {
     adjustPageSpacing();
     window.addEventListener('resize', adjustPageSpacing);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('scrollend', handleScrollEnd);
 
     return () => {
       window.removeEventListener('resize', adjustPageSpacing);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('scrollend', handleScrollEnd);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
     };
   }, [handleScroll]);
 
   return (
     <header
-      className={`topnav screen1600 fixed-top-center z-50 transition-transform duration-300 ${
-        visible ? 'translate-y-0' : '-translate-y-[calc(100%+8px)]'
+      className={`topnav screen1600 fixed-top-center z-50 transition-transform duration-500 ease-in-out ${
+        visible
+          ? 'translate-y-0'
+          : '-translate-y-[calc(100%+8px)]' /* 100% + py */
       }`}
     >
       <nav className="-nav-container">
