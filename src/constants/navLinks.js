@@ -21,7 +21,7 @@ export const navLinks = [
   },
   {
     id: 5,
-    path: '#bookURL',
-    label: 'Book'
-  }
+    path: 'https://form.jotform.com/250497057223154',
+    label: 'Book',
+  },
 ];
