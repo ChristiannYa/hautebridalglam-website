@@ -1,9 +1,21 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { scrollToSection } from '../utils/scroll';
+import { useGSAP } from '@gsap/react';
 
 import { navLinks } from '../constants/navLinks';
+import gsap from 'gsap';
 
 const Nav = () => {
+  useGSAP(() => {
+    gsap.from('.-nav-container', {
+      y: 50,
+      opacity: 0,
+      duration: 2,
+      ease: 'power3.out',
+      delay: 1.5,
+    });
+  });
+
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [visible, setVisible] = useState(true);
   const [isClickScroll, setIsClickScroll] = useState(false);
