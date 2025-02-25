@@ -43,7 +43,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="fixed screen overflow-hidden z-0">
+    <section id="home" className="fixed screen overflow-hidden z-0">
       <video autoPlay loop muted playsInline className="background-video">
         <source src="/landing.mp4" type="video/mp4" />
         Your browser does not support the video tag.

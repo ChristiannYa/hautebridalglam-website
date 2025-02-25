@@ -15,8 +15,8 @@ const contactInfo = [
     text: '@hautebridalglam',
   },
   {
-    icon: contact.location,
-    text: 'Dallas | Plano | Frisco | Allen, TX',
+    icon: contact.texas,
+    text: 'Dallas | Plano | Frisco | Allen',
   },
 ];
 

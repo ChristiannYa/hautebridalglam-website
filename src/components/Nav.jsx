@@ -1,4 +1,6 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
+import { scrollToSection } from '../utils/scroll';
+
 import { navLinks } from '../constants/navLinks';
 
 const Nav = () => {
@@ -48,12 +50,11 @@ const Nav = () => {
     });
   };
 
-  const scrollToSection = (e, sectionId) => {
+  const handleNavClick = (e, path) => {
     e.preventDefault();
     setIsClickScroll(true);
     setVisible(true);
-    const element = document.getElementById(sectionId.replace('#', ''));
-    element.scrollIntoView({ behavior: 'smooth' });
+    scrollToSection(path);
   };
 
   useEffect(() => {
@@ -86,7 +87,7 @@ const Nav = () => {
             key={link.id}
             href={link.path}
             className="-anchor-link font-poiretOne text-primary"
-            onClick={(e) => scrollToSection(e, link.path)}
+            onClick={(e) => handleNavClick(e, link.path)}
           >
             {link.label}
           </a>

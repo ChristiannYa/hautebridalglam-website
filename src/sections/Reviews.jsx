@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { scrollToSection } from '../utils/scroll';
 
 import reviews from '../constants/reviews';
+import miscellaneous from '../assets/icons/miscellanoeus';
 
 const Reviews = () => {
   const words = ['Client Love', 'Kind Words', 'Testimonials', 'Reviews'];
@@ -77,6 +79,12 @@ const Reviews = () => {
           ))}
         </div>
       </div>
+      <button
+        className="absolute-bottom-right rounded-full hover:cursor-pointer p-2 mb-6 max-md:mb-2 mr-6 max-md:mr-2"
+        onClick={() => scrollToSection('home')}
+      >
+        <img src={miscellaneous.up} height={18} className="" alt="" />
+      </button>
     </section>
   );
 };
