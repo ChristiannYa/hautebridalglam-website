@@ -20,12 +20,12 @@ const Packages = () => {
           </h2>
           <div className="font-outfit text-xl text-justify font-light">
             <p>
-              Your wedding day is one of the most memorable moments in your life
-              and I will be dedicated to making you look and feel your best. The
-              Luxury Wedding Makeup & Hair Packages have been specially tailored
-              to create a luxurious and stress-free experience for brides and
-              grooms, including Premium Skincare, Professional Makeup and
-              Pristine Hair.
+              The Wedding Makeup & Hair Packages for the bride and the groom
+              have been specially tailored to create a luxurious experience and
+              both include premium skincare, professional makeup and pristine
+              hair treatmemts to make you feel truly pampered for your big day.
+              Luxury Add-Ons are also available to complement your look making
+              you feel your absolute best.
             </p>
           </div>
         </div>

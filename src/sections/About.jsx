@@ -13,16 +13,16 @@ const About = () => {
         <div className="flexcol-center md:flex-row gap-x-12 max-md:gap-y-6">
           <div className="font-outfit text-xl text-justify font-light space-y-2">
             <p>
-              I am an experienced and passionate makeup artist dedicated to
-              bringing out your beauty for any event. Whether you&apos;re a
-              fashion model preparing for a shoot, a bride on your special day,
-              or attending a glamorous event, my expertise ensures you&apos;ll
-              look flawles.
+              I am an experienced and passionate hairstylist and makeup artist
+              dedicated to enhancing your natural beauty for any occasion.
+              Whether you&apos;re a bride on your special day, fashion model
+              preparing for a shoot, or attending a glamorous event, my
+              expertise will make you look flawles.
             </p>
             <p>
               I use high-quality, professional products to ensure your makeup
               looks stunning both in person and in photographs. My goal is to
-              make you feel relaxed and beautiful throughout your wedding day.
+              make you feel confident and beautiful throughout your wedding day.
             </p>
             <p>
               From soft, elegant bridal makeup to bold, high-fashion editorial

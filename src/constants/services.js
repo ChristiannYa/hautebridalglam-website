@@ -12,7 +12,7 @@ export const services = [
     id: 2,
     title: 'Bridal Makeup',
     description: 'Flawless, long-lasting look for your special day',
-    price: '$275',
+    price: '$285',
     image: artistServices.bridalMakeup,
   },
   {

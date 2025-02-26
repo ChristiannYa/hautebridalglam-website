@@ -33,7 +33,7 @@ const weddingPackages = [
           'Elegant updos, waves, or sleek styles tailored to your bridal vision',
       },
     ],
-    price: 'Starting at $950',
+    price: 'Starting at $850',
   },
   {
     id: 'For The Groom',
@@ -68,21 +68,21 @@ const weddingPackages = [
           'From classic slicked-back styles to modern textured looks, we ensure your hair is wedding-ready',
       },
     ],
-    price: 'Starting at $750',
+    price: 'Starting at $575',
   },
   {
     id: 'Luxury Add-Ons',
     title: 'Luxury Add-Ons',
     services: [
       {
-        title: '24/7 Bridal Concierge Service',
+        title: 'Facial Yoga Session',
         description:
-          'A personal beauty assistant available on-call for last-minute touch-ups and beauty needs',
+          'Pre-wedding skin prep hydration and radiance boost, jawline sculpting.',
       },
       {
         title: 'Exclusive Bridal Glow Treatment',
         description:
-          'Advanced skin care with oxygen infusion and LED therapy for a radiant complexion',
+          'Advanced skin care with the galvanic facial spa for a radiant complexion lifting and puffiness reduction',
       },
       {
         title: 'Signature Hot Towel Shave & Beard Conditioning',
@@ -100,7 +100,7 @@ const weddingPackages = [
           'Assistance in selecting the perfect scent for the wedding day',
       },
     ],
-    price: '$200 Each',
+    price: '$150 Each',
   },
 ];
 

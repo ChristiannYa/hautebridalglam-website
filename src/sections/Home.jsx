@@ -1,9 +1,12 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { TextPlugin } from 'gsap/TextPlugin';
 import miscellaneous from '../assets/miscellaneous';
+gsap.registerPlugin(TextPlugin);
 
 const Home = () => {
   useGSAP(() => {
+    // Original animations
     gsap.from('#text1', {
       x: '100vw',
       duration: 2,
@@ -11,12 +14,59 @@ const Home = () => {
       delay: 0.5,
     });
 
+    // Apply the original slide-in animation first
     gsap.from('#text2', {
       x: '-100vw',
       duration: 2,
       ease: 'power4.out',
       delay: 0.5,
+      onComplete: startTypewriterEffect, // Start typewriter after slide-in completes
     });
+
+    function startTypewriterEffect() {
+      const initialText = document.querySelector('#text2').textContent.trim();
+      const words = [
+        initialText,
+        'Elegant Makeup',
+        'Beautiful Makeover',
+        'glowing spa facials',
+      ];
+
+      const typewriterTl = gsap.timeline({
+        repeat: -1,
+        repeatDelay: 0.5,
+      });
+
+      // Add each word with typewriter effect
+      words.forEach((word, index) => {
+        // Don't clear the text for the first iteration (it's already there from the slide-in)
+        if (index !== 0) {
+          typewriterTl.to('#text2', {
+            duration: 0.75,
+            text: '',
+            ease: 'none',
+          });
+        }
+
+        // Skip typing animation for the first word if it's already displayed
+        if (index !== 0 || word !== initialText) {
+          typewriterTl.to('#text2', {
+            duration: 1.5,
+            text: word,
+            ease: 'none',
+          });
+        }
+
+        typewriterTl.to({}, { duration: 2 });
+      });
+
+      // Clear the last word before repeating
+      typewriterTl.to('#text2', {
+        duration: 0.75,
+        text: '',
+        ease: 'none',
+      });
+    }
 
     gsap.from('#text3', {
       y: 50,
@@ -63,7 +113,7 @@ const Home = () => {
         </h1>
         <hr className="mb-4 divider" />
         <p id="text3" className="font-outfit font-light text-xl max-md:text-lg">
-          Enhancing Your Natural Beauty on Your Special Day
+          Enhancing your natural beauty on your special day
         </p>
       </div>
     </section>
