@@ -21,6 +21,7 @@
 
     &.not-on-landing-page {
       background-color: white;
+      color: var(--color-primary);
       border: solid 2px var(--color-primary);
     }
 
@@ -32,7 +33,6 @@
 
     a {
       font-family: var(--font-poiretOne);
-
       transition: color 0.2s ease;
 
       padding: 4px 6px;

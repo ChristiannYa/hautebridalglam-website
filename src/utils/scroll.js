@@ -1,6 +1,11 @@
 export const scrollToSection = (sectionId) => {
-  const id = sectionId.replace('#', '');
-  const element = document.getElementById(id);
+  const id = sectionId.startsWith('#') ? sectionId.slice(1) : sectionId;
+
+  window.dispatchEvent(
+    new CustomEvent('beforePageScroll', {
+      detail: { targetSection: id },
+    })
+  );
 
   // Special case for home section which is fixed
   if (id === 'home') {
@@ -11,9 +16,10 @@ export const scrollToSection = (sectionId) => {
     return;
   }
 
+  const element = document.getElementById(id);
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
   } else {
-    window.location.href = `/${sectionId}`;
+    window.location.href = `/${id}`;
   }
 };
