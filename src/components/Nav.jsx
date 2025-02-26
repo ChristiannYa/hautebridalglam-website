@@ -1,6 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { scrollToSection } from '../utils/scroll';
-import { useGSAP } from '@gsap/react';
 import { navLinks } from '../constants/navLinks';
 import gsap from 'gsap';
 
@@ -11,16 +10,44 @@ const Nav = () => {
   const headerRef = useRef(null);
   const isProgrammaticScrollRef = useRef(false);
   const scrollTimeoutRef = useRef(null);
+  const navContainerRef = useRef(null);
+  const hasAnimatedRef = useRef(false);
 
-  useGSAP(() => {
-    gsap.from('.-nav-container', {
-      y: 50,
-      opacity: 0,
-      duration: 2,
-      ease: 'power3.out',
-      delay: 1.5,
-    });
-  });
+  useEffect(() => {
+    const checkIfHomePage = () => {
+      const isHome = window.scrollY < 100;
+      console.log(
+        'Initial scroll position:',
+        window.scrollY,
+        'isHome:',
+        isHome
+      );
+
+      if (navContainerRef.current && !hasAnimatedRef.current) {
+        hasAnimatedRef.current = true;
+
+        if (isHome) {
+          // Animate if on home page
+          gsap.from(navContainerRef.current, {
+            y: 50,
+            opacity: 0,
+            duration: 2,
+            ease: 'power3.out',
+            delay: 1.5,
+          });
+        } else {
+          // Immediately show if not on home page
+          gsap.set(navContainerRef.current, {
+            y: 0,
+            opacity: 1,
+          });
+        }
+      }
+    };
+
+    // Run after a slight delay to let browser restore scroll position
+    setTimeout(checkIfHomePage, 50);
+  }, []);
 
   const measureWindowHeight = useCallback(() => {
     setViewportHeight(window.innerHeight);
@@ -40,7 +67,6 @@ const Nav = () => {
   }, []);
 
   const updateNavThemeOnScroll = useCallback(() => {
-    // Skip scroll-based updates during programmatic scrolling
     if (isProgrammaticScrollRef.current) return;
 
     const currentScrollPos = window.scrollY;
@@ -49,28 +75,24 @@ const Nav = () => {
 
   const handleProgrammaticScroll = useCallback(
     (e) => {
-      // Set flag to disable scroll-based updates during programmatic scrolling
       isProgrammaticScrollRef.current = true;
 
-      // Clear any existing timeout
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
 
-      // Set immediately based on target section
       if (e.detail.targetSection === 'home') {
         setIsOnLandingPage(true);
       } else {
         setIsOnLandingPage(false);
       }
 
-      // After scrolling completes, re-enable scroll-based updates
       scrollTimeoutRef.current = setTimeout(() => {
         isProgrammaticScrollRef.current = false;
 
         const currentScrollPos = window.scrollY;
         setIsOnLandingPage(currentScrollPos < viewportHeight - headerHeight);
-      }, 1000); // Adjust timeout to match scroll animation duration
+      }, 1000);
     },
     [viewportHeight, headerHeight]
   );
@@ -125,7 +147,6 @@ const Nav = () => {
     measureHeaderHeight,
   ]);
 
-  // Update on initial load and resize, not during scroll
   useEffect(() => {
     if (!isProgrammaticScrollRef.current) {
       setIsOnLandingPage(window.scrollY < viewportHeight - headerHeight);
@@ -138,6 +159,7 @@ const Nav = () => {
         className={`-nav-container ${
           isOnLandingPage ? 'on-landing-page' : 'not-on-landing-page'
         }`}
+        ref={navContainerRef}
       >
         {navLinks.map((link) => (
           <a
