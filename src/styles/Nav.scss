@@ -2,19 +2,27 @@
   margin-top: 8px;
 
   .-nav-container {
-    background-color: white;
-    border: solid 2px var(--color-primary);
     border-radius: 12px;
     text-align: center;
-    
+
     width: fit-content;
     margin-inline: auto;
-    padding: 16px 8px;
+    padding: 10px 8px;
 
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0 16px;
+
+    &.on-landing-page {
+      background-color: transparent;
+      border: none;
+    }
+
+    &.not-on-landing-page {
+      background-color: white;
+      border: solid 2px var(--color-primary);
+    }
 
     @media (max-width: 620px) {
       padding: 6px 4px;
@@ -22,14 +30,23 @@
       gap: 0 8px;
     }
 
-    .-anchor-link {
+    a {
+      font-family: var(--font-poiretOne);
+
       transition: color 0.2s ease;
 
       padding: 4px 6px;
 
+      &.on-landing-page {
+        color: white;
+      }
+
+      &.not-on-landing-page {
+        color: var(--color-primary);
+      }
+
       @media (hover: hover) {
         &:hover {
-          color: var(--color-primnary);
           font-weight: 600;
         }
       }

@@ -1,6 +1,5 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-
 import miscellaneous from '../assets/miscellaneous';
 
 const Home = () => {

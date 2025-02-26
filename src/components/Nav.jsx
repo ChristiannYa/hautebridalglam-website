@@ -1,11 +1,13 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { scrollToSection } from '../utils/scroll';
 import { useGSAP } from '@gsap/react';
-
 import { navLinks } from '../constants/navLinks';
 import gsap from 'gsap';
 
 const Nav = () => {
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+  const [isOnLandingPage, setIsOnLandingPage] = useState(true);
+
   useGSAP(() => {
     gsap.from('.-nav-container', {
       y: 50,
@@ -21,6 +23,10 @@ const Nav = () => {
   const [isClickScroll, setIsClickScroll] = useState(false);
   const scrollTimeoutRef = useRef(null);
 
+  const updateViewportHeight = useCallback(() => {
+    setViewportHeight(window.innerHeight);
+  }, []);
+
   const handleScroll = useCallback(() => {
     if (!isClickScroll) {
       requestAnimationFrame(() => {
@@ -28,10 +34,10 @@ const Nav = () => {
         const isVisible =
           prevScrollPos > currentScrollPos || currentScrollPos < 1;
 
+        setIsOnLandingPage(currentScrollPos < viewportHeight);
         setVisible(isVisible);
         setPrevScrollPos(currentScrollPos);
 
-        // Delay hiding on touch devices
         if (!isVisible) {
           if (scrollTimeoutRef.current) {
             clearTimeout(scrollTimeoutRef.current);
@@ -42,7 +48,7 @@ const Nav = () => {
         }
       });
     }
-  }, [prevScrollPos, isClickScroll]);
+  }, [prevScrollPos, isClickScroll, viewportHeight]);
 
   const handleScrollEnd = () => {
     setIsClickScroll(false);
@@ -66,16 +72,28 @@ const Nav = () => {
     e.preventDefault();
     setIsClickScroll(true);
     setVisible(true);
+
+    // Check if navigating to a non-home section
+    // and update the state
+    if (path !== '#home') {
+      setIsOnLandingPage(false);
+    } else {
+      setIsOnLandingPage(true);
+    }
+
     scrollToSection(path);
   };
 
   useEffect(() => {
     adjustPageSpacing();
+
+    window.addEventListener('resize', updateViewportHeight);
     window.addEventListener('resize', adjustPageSpacing);
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('scrollend', handleScrollEnd);
 
     return () => {
+      window.removeEventListener('resize', updateViewportHeight);
       window.removeEventListener('resize', adjustPageSpacing);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('scrollend', handleScrollEnd);
@@ -83,7 +101,11 @@ const Nav = () => {
         clearTimeout(scrollTimeoutRef.current);
       }
     };
-  }, [handleScroll]);
+  }, [handleScroll, updateViewportHeight]);
+
+  useEffect(() => {
+    setIsOnLandingPage(window.scrollY < viewportHeight);
+  }, [viewportHeight]);
 
   return (
     <header
@@ -91,14 +113,20 @@ const Nav = () => {
         visible
           ? 'translate-y-0'
           : '-translate-y-[calc(100%+8px)]' /* 100% + py */
-      }`}
+      } `}
     >
-      <nav className="-nav-container">
+      <nav
+        className={`-nav-container ${
+          isOnLandingPage ? 'on-landing-page' : 'not-on-landing-page'
+        }`}
+      >
         {navLinks.map((link) => (
           <a
             key={link.id}
             href={link.path}
-            className="-anchor-link font-poiretOne text-primary"
+            className={`${
+              isOnLandingPage ? 'on-landing-page' : 'not-on-landing-page'
+            }`}
             onClick={(e) => handleNavClick(e, link.path)}
           >
             {link.label}
