@@ -20,12 +20,12 @@ const Packages = () => {
           </h2>
           <div className="font-outfit text-xl text-justify font-light">
             <p>
-              The Wedding Makeup & Hair Packages for the bride and the groom
-              have been specially tailored to create a luxurious experience and
-              both include premium skincare, professional makeup and pristine
-              hair treatmemts to make you feel truly pampered for your big day.
-              Luxury Add-Ons are also available to complement your look making
-              you feel your absolute best.
+              Our Wedding Makeup & Hair Packages for the bride and groom are
+              designed to provide a luxiourus experience. Each package includes
+              premium skinkcare, professional makeup, and flawless hair
+              treatments, ensuring you feel pampered on your special day.
+              Additionall, Luxury Add-Ons are available to enhance your look,
+              helping you feel your absolute best.
             </p>
           </div>
         </div>

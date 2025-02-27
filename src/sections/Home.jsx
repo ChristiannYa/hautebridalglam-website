@@ -28,7 +28,7 @@ const Home = () => {
       const words = [
         initialText,
         'Elegant Makeup',
-        'Beautiful Makeover',
+        'Professional Makeover',
         'glowing spa facials',
       ];
 

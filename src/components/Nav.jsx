@@ -113,7 +113,13 @@ const Nav = () => {
 
   const navigateToSection = (e, path) => {
     e.preventDefault();
-    scrollToSection(path);
+
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      // '_self' instead of '_blank' to open in same tab
+      window.open(path, '_blank');
+    } else {
+      scrollToSection(path);
+    }
   };
 
   useEffect(() => {
