@@ -7,10 +7,6 @@ const contactInfo = [
     text: 'hbgbya.j@gmail.com',
   },
   {
-    icon: contact.phone,
-    text: '(214) 499-2106',
-  },
-  {
     icon: contact.instagram,
     text: '@hautebridalglam',
   },
